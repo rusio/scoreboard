@@ -1,6 +1,6 @@
 #!/bin/bash
 
 set -e
-echo "Full git reset"
+echo "Fully reverting to last commit..."
 git reset --hard
 git clean -f
