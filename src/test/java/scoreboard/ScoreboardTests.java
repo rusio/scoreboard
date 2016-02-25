@@ -32,4 +32,14 @@ class ScoreboardTests {
 
 		verify(display).displayScore(1, 0);
 	}
+
+	@Test
+	void teamBPlusWillDisplayIncreasedScore(@InjectMock ScoreDisplay display) {
+		board.registerDisplay(display);
+		Mockito.reset(display);
+
+		board.send(Command.INC_B);
+
+		verify(display).displayScore(0, 1);
+	}
 }

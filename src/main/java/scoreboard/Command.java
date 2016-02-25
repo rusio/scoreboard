@@ -1,5 +1,5 @@
 package scoreboard;
 
 public enum Command {
-	INC_A
+	INC_B, INC_A
 }
