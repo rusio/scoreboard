@@ -19,13 +19,19 @@ public class Scoreboard {
 	}
 
 	public void send(Command command) {
-		history.save(scoreA, scoreB);
 		switch (command) {
 			case INC_A:
+				history.save(scoreA, scoreB);
 				scoreA++;
 				break;
 			case INC_B:
+				history.save(scoreA, scoreB);
 				scoreB++;
+				break;
+			case REVERT:
+				int[] score = history.pop();
+				scoreA = score[0];
+				scoreB = score[1];
 				break;
 		}
 		display.displayScore(scoreA, scoreB);
