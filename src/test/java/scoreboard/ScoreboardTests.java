@@ -20,6 +20,12 @@ class ScoreboardTests {
 		assertScore(1, 0);
 	}
 
+	@Test
+	void increaseScoreOfTeamB() {
+		board.plusTeamB();
+		assertScore(0, 1);
+	}
+
 	private void assertScore(int expectedScoreA, int expectedScoreB) {
 		assertAll("current score", //
 				() -> assertEquals(expectedScoreA, board.scoreTeamA(), "team A"), //
