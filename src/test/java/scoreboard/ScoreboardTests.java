@@ -7,12 +7,24 @@ import org.junit.gen5.api.Test;
 
 class ScoreboardTests {
 
+	Scoreboard board = new Scoreboard();
+
 	@Test
 	void aNewBoard() {
-		Scoreboard board = new Scoreboard();
+		assertScore(0, 0);
+	}
+
+	@Test
+	void increaseScoreOfTeamA() {
+		board.plusTeamA();
+		assertScore(1, 0);
+	}
+
+	private void assertScore(int expectedScoreA, int expectedScoreB) {
 		assertAll("current score", //
-			() -> assertEquals(0, board.scoreTeamA(), "team A"), //
-			() -> assertEquals(0, board.scoreTeamB(), "team B") //
+				() -> assertEquals(expectedScoreA, board.scoreTeamA(), "team A"), //
+				() -> assertEquals(expectedScoreB, board.scoreTeamB(), "team B") //
 		);
 	}
+
 }

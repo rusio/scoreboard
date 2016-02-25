@@ -8,4 +8,8 @@ public class Scoreboard {
 	public int scoreTeamB() {
 		return 0;
 	}
+
+	public void plusTeamA() {
+
+	}
 }
