@@ -9,6 +9,7 @@ import junit5.helpers.MockitoExtension;
 import org.junit.gen5.api.BeforeEach;
 import org.junit.gen5.api.Test;
 import org.junit.gen5.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
@@ -54,7 +55,12 @@ class ScoreboardTests {
 	@Test
 	void increasingScoreWillTriggerHistorySaveWithPreviousScore() {
 		board.send(Command.INC_A);
+		board.send(Command.INC_B);
+		board.send(Command.INC_A);
 
-		verify(history).save(0, 0);
+		InOrder inOrder = Mockito.inOrder(history);
+		inOrder.verify(history).save(0, 0);
+		inOrder.verify(history).save(1, 0);
+		inOrder.verify(history).save(1, 1);
 	}
 }
