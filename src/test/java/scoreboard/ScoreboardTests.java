@@ -1,14 +1,22 @@
+
 package scoreboard;
 
-import static org.junit.gen5.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
-import org.junit.gen5.api.Assertions;
+import junit5.helpers.InjectMock;
+import junit5.helpers.MockitoExtension;
+
 import org.junit.gen5.api.Test;
+import org.junit.gen5.api.extension.ExtendWith;
 
+@ExtendWith(MockitoExtension.class)
 class ScoreboardTests {
 
 	@Test
-	void aNewBoard() throws Exception {
-		assertNotNull(new Scoreboard());
+	void aNewBoardDisplaysInitialScore(@InjectMock ScoreDisplay display) {
+		Scoreboard board = new Scoreboard();
+		board.registerDisplay(display);
+
+		verify(display).displayScore(0, 0);
 	}
 }
