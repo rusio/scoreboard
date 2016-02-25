@@ -22,6 +22,6 @@ for change of technology.
 
 1. An external, programmable input device can be attached that will send character sequences to `stdin`
 1. The current score must be written to an external file for other displays to pick up
-1. The history must survive an application restart
+1. Current score and history must survive an application restart
 
 
