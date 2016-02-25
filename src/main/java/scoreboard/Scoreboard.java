@@ -8,6 +8,10 @@ public class Scoreboard {
 	private int scoreA = 0;
 	private int scoreB = 0;
 
+	public Scoreboard(ScoreHistory history) {
+
+	}
+
 	public void registerDisplay(ScoreDisplay display) {
 		display.displayScore(scoreA, scoreB);
 		this.display = display;
