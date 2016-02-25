@@ -21,7 +21,11 @@ public class ScoreboardConsole {
 	public void start(Scanner scanner) {
 		showScore();
 		while(scanner.hasNext()) {
-
+			String command = scanner.next();
+			if ("a+".equals(command)) {
+				scoreboard.plusTeamA();
+				showScore();
+			}
 		}
 	}
 
