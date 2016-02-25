@@ -13,7 +13,7 @@ import org.junit.gen5.api.extension.ExtendWith;
 class ScoreboardTests {
 
 	@Test
-	void aNewBoardDisplaysInitialScore(@InjectMock ScoreDisplay display) {
+	void registeringADisplayWillDisplayCurrentScore(@InjectMock ScoreDisplay display) {
 		Scoreboard board = new Scoreboard();
 		board.registerDisplay(display);
 
