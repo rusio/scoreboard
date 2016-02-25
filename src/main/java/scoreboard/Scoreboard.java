@@ -1,8 +1,11 @@
 package scoreboard;
 
 public class Scoreboard {
+
+	private int scoreTeamA = 0;
+
 	public int scoreTeamA() {
-		return 0;
+		return scoreTeamA;
 	}
 
 	public int scoreTeamB() {
@@ -10,6 +13,6 @@ public class Scoreboard {
 	}
 
 	public void plusTeamA() {
-
+		scoreTeamA++;
 	}
 }
