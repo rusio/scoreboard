@@ -2,10 +2,10 @@ package scoreboard;
 
 public class Scoreboard {
 	public int scoreTeamA() {
-		return -1;
+		return 0;
 	}
 
 	public int scoreTeamB() {
-		return -1;
+		return 0;
 	}
 }
