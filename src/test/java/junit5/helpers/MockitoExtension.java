@@ -1,4 +1,4 @@
-package com.example.mockito;
+package junit5.helpers;
 
 import static org.mockito.Mockito.mock;
 

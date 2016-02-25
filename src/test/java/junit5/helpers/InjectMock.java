@@ -1,4 +1,4 @@
-package com.example.mockito;
+package junit5.helpers;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
