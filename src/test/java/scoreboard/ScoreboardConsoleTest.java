@@ -18,6 +18,18 @@ class ScoreboardConsoleTest {
 	@Test
 	void startingConsoleShowsInitialScore() throws Exception {
 		console.start(new Scanner(""));
-		assertEquals("000:000" + System.lineSeparator(), stringWriter.toString());
+		assertEquals("000:000", getLastOutputLine());
+	}
+
+
+	@Test
+	void pressingAandPlusIncreasesScoreOfTeamA() throws Exception {
+		console.start(new Scanner("a+"));
+		assertEquals("001:000", getLastOutputLine());
+	}
+
+	private String getLastOutputLine() {
+		String[] allOutputLines = stringWriter.toString().split(System.lineSeparator());
+		return allOutputLines[allOutputLines.length - 1];
 	}
 }
