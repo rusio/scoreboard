@@ -6,6 +6,6 @@ Example Code Base for TDD exercises and workshops using JUnit 5.
 
 Test-Drive an application to display and track the score of a game. 
 
-[[./scoreboard.png|alt=scoreboard]]
+[[https://github.com/jlink/scorboard/blob/master//scoreboard.png|alt=scoreboard]]
 
 
