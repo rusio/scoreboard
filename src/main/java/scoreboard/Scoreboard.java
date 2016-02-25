@@ -3,13 +3,14 @@ package scoreboard;
 
 public class Scoreboard {
 
-	private ScoreDisplay display;
+	private final ScoreHistory history;
+	private ScoreDisplay display = ScoreDisplay.NULL;
 
 	private int scoreA = 0;
 	private int scoreB = 0;
 
 	public Scoreboard(ScoreHistory history) {
-
+		this.history = history;
 	}
 
 	public void registerDisplay(ScoreDisplay display) {
@@ -18,6 +19,7 @@ public class Scoreboard {
 	}
 
 	public void send(Command command) {
+		history.save(scoreA, scoreB);
 		switch (command) {
 			case INC_A:
 				scoreA++;
