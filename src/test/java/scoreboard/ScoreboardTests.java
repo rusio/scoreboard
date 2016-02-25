@@ -1,7 +1,8 @@
 
 package scoreboard;
 
-import static org.mockito.Mockito.verify;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.*;
 
 import junit5.helpers.InjectMock;
 import junit5.helpers.MockitoExtension;
@@ -18,7 +19,8 @@ class ScoreboardTests {
 
 	Scoreboard board;
 
-	@Mock ScoreHistory history;
+	@Mock
+	ScoreHistory history;
 
 	@BeforeEach
 	void init() {
@@ -35,7 +37,7 @@ class ScoreboardTests {
 	@Test
 	void teamAPlusWillDisplayIncreasedScore(@InjectMock ScoreDisplay display) {
 		board.registerDisplay(display);
-		Mockito.reset(display);
+		reset(display);
 
 		board.send(Command.INC_A);
 
@@ -45,7 +47,7 @@ class ScoreboardTests {
 	@Test
 	void teamBPlusWillDisplayIncreasedScore(@InjectMock ScoreDisplay display) {
 		board.registerDisplay(display);
-		Mockito.reset(display);
+		reset(display);
 
 		board.send(Command.INC_B);
 
@@ -62,5 +64,17 @@ class ScoreboardTests {
 		inOrder.verify(history).save(0, 0);
 		inOrder.verify(history).save(1, 0);
 		inOrder.verify(history).save(1, 1);
+	}
+
+	@Test
+	void revertCommandGetsLatestScoreFromHistoryAndDisplaysIt(@InjectMock ScoreDisplay display) {
+		when(history.pop()).thenReturn(new int[] { 42, 41 });
+		board.registerDisplay(display);
+		reset(display);
+
+		board.send(Command.REVERT);
+		verify(display).displayScore(42, 41);
+
+		verify(history, never()).save(anyInt(), anyInt());
 	}
 }
