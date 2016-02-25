@@ -9,12 +9,20 @@ import junit5.helpers.MockitoExtension;
 import org.junit.gen5.api.BeforeEach;
 import org.junit.gen5.api.Test;
 import org.junit.gen5.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 @ExtendWith(MockitoExtension.class)
 class ScoreboardTests {
 
-	Scoreboard board = new Scoreboard();
+	Scoreboard board;
+
+	@Mock ScoreHistory history;
+
+	@BeforeEach
+	void init() {
+		board = new Scoreboard(history);
+	}
 
 	@Test
 	void registeringADisplayWillDisplayCurrentScore(@InjectMock ScoreDisplay display) {
@@ -41,5 +49,12 @@ class ScoreboardTests {
 		board.send(Command.INC_B);
 
 		verify(display).displayScore(0, 1);
+	}
+
+	@Test
+	void increasingScoreWillTriggerHistorySaveWithPreviousScore() {
+		board.send(Command.INC_A);
+
+		verify(history).save(0, 0);
 	}
 }
