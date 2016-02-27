@@ -19,3 +19,4 @@ out/
 # Misc
 *.log
 .clover/
+/target/
