@@ -4,5 +4,7 @@ public enum Command {
 	IncreaseA,
 	DecreaseA,
 	IncreaseB,
-	DecreaseB
+	DecreaseB,
+	Rewind,
+	Reset
 }

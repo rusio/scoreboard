@@ -46,33 +46,7 @@ public class ScoreboardTests {
 	@Test
 	public void reset() throws Exception {
 		board.execute(Command.IncreaseA);
-		board.execute(Command.IncreaseB);
-		board.execute(Command.DecreaseB);
-		board.reset();
-		assertScores(0, 0);
-		assertHistoryEmpty();
-	}
-
-	@Test
-	public void rewind() throws Exception {
-		board.execute(Command.IncreaseA);
-		board.execute(Command.IncreaseA);
-		board.execute(Command.DecreaseA);
-		board.execute(Command.IncreaseB);
-		board.execute(Command.IncreaseB);
-		board.execute(Command.DecreaseB);
-		assertScores(1, 1);
-		board.rewind();
-		assertScores(1, 2);
-		board.rewind();
-		assertScores(1, 1);
-		board.rewind();
-		assertScores(1, 0);
-		board.rewind();
-		assertScores(2, 0);
-		board.rewind();
-		assertScores(1, 0);
-		board.rewind();
+		board.execute(Command.Reset);
 		assertScores(0, 0);
 	}
 	
@@ -81,14 +55,6 @@ public class ScoreboardTests {
 		inOrder.verify(scoreListener).onScoreChanged(0, 0);
 		board.execute(Command.IncreaseA);
 		inOrder.verify(scoreListener).onScoreChanged(1, 0);
-	}
-
-	private void assertHistoryEmpty() {
-		int scoreA = board.getScoreA();
-		int scoreB = board.getScoreB();
-		board.rewind();
-		assertEquals(scoreA, board.getScoreA());
-		assertEquals(scoreB, board.getScoreB());
 	}
 
 	private void assertScores(int expectedScoreA, int expectedScoreB) {

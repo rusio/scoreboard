@@ -13,7 +13,7 @@ public class DisplayTest {
 	private PrintStream console = mock(PrintStream.class);
 	private InOrder inOrder = Mockito.inOrder(console);
 	private ScoreDisplay display = new ScoreDisplay(console);
-	private Scoreboard scoreBoard = new Scoreboard(display);
+	private CommandExecutor scoreBoard = new Scoreboard(display);
 
 	@Test
 	public void testInit() throws IOException {
