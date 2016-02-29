@@ -9,6 +9,9 @@ import java.io.IOException;
 import org.junit.Test;
 import org.mockito.InOrder;
 
+import scoreboard.api.Command;
+import scoreboard.api.CommandExecutor;
+
 public class HistoryExecutorTest {
 
 	@Test

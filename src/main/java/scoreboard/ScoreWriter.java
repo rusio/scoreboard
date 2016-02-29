@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 
+import scoreboard.api.ScoreListener;
+
 public class ScoreWriter implements ScoreListener {
 
 	private ScoreListener chainedListener;

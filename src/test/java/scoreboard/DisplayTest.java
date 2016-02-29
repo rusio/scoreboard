@@ -9,6 +9,9 @@ import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 
+import scoreboard.api.Command;
+import scoreboard.api.CommandExecutor;
+
 public class DisplayTest {
 	private PrintStream console = mock(PrintStream.class);
 	private InOrder inOrder = Mockito.inOrder(console);
@@ -16,7 +19,7 @@ public class DisplayTest {
 	private CommandExecutor scoreBoard = new Scoreboard(display);
 
 	@Test
-	public void testInit() throws IOException {
+	public void displayScores() throws IOException {
 		inOrder.verify(console).println("000 : 000");
 		scoreBoard.execute(Command.IncreaseA);
 		inOrder.verify(console).println("001 : 000");

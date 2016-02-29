@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.HashMap;
 
+import scoreboard.api.Command;
+import scoreboard.api.CommandExecutor;
+
 public class InputAdapter implements Runnable {
 	boolean running;
 	private Reader reader;

@@ -12,6 +12,8 @@ import java.util.List;
 import org.junit.Test;
 import org.mockito.InOrder;
 
+import scoreboard.api.ScoreListener;
+
 public class ScoreWriterTest {
 
 	@Test

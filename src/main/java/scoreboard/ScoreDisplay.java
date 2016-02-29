@@ -2,6 +2,8 @@ package scoreboard;
 
 import java.io.PrintStream;
 
+import scoreboard.api.ScoreListener;
+
 public class ScoreDisplay implements ScoreListener {
 
 	private PrintStream console;

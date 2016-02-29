@@ -1,4 +1,4 @@
-package scoreboard;
+package scoreboard.api;
 
 public enum Command {
 	IncreaseA,

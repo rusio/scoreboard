@@ -1,5 +1,9 @@
 package scoreboard;
 
+import scoreboard.api.Command;
+import scoreboard.api.CommandExecutor;
+import scoreboard.api.ScoreListener;
+
 public class Scoreboard implements CommandExecutor {
 
 	private int scoreA;

@@ -7,6 +7,9 @@ import static org.mockito.Mockito.mock;
 import org.junit.Test;
 import org.mockito.InOrder;
 
+import scoreboard.api.Command;
+import scoreboard.api.ScoreListener;
+
 public class ScoreboardTests {
 	private ScoreListener scoreListener = mock(ScoreListener.class);
 	private InOrder inOrder = inOrder(scoreListener);

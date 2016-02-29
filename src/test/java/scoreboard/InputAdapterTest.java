@@ -10,6 +10,8 @@ import java.io.UnsupportedEncodingException;
 import org.junit.Test;
 import org.mockito.InOrder;
 
+import scoreboard.api.Command;
+
 public class InputAdapterTest {
 
 	@Test

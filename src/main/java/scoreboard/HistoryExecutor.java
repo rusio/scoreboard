@@ -10,6 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+import scoreboard.api.Command;
+import scoreboard.api.CommandExecutor;
+
 public class HistoryExecutor implements CommandExecutor {
 	protected Stack<Command> history;
 	private Map<Command, Command> reverse;

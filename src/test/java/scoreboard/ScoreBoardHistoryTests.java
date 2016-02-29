@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import scoreboard.api.Command;
+import scoreboard.api.CommandExecutor;
+
 public class ScoreBoardHistoryTests {
 	private Scoreboard board = new Scoreboard(null);
 	private CommandExecutor executor = new HistoryExecutor(board);
